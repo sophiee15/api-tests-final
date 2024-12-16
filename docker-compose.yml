@@ -4,13 +4,15 @@ services:
     image: sophie14/python-greetings
     container_name: python-greetings-dev
     ports:
-      - 7070:3000
+      - 7001:3000
+
   python-greetings-stg:
     build: . 
     image: sophie14/python-greetings
     container_name: python-greetings-stg
     ports:
-      - 8080:3000
+      - 7002:3000
+
   python-greetings-prd:
     build:
       context: .
@@ -18,4 +20,4 @@ services:
     image: sophie14/python-greetings
     container_name: python-greetings-prd
     ports:
-      - 9090:3000
+      - 7003:3000
