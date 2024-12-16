@@ -9,32 +9,32 @@ pipeline {
                 buildDockerImage()
             }
         }
-        stage('deploy-dev') {
+        stage('deploy-to-dev') {
             steps {
                 deploy("DEV")
             }
         }
-        stage('test-dev') {
+        stage('test-on-dev') {
             steps {
                 runApiTests("DEV")
             }
         }
-        stage('deploy-stg') {
+        stage('deploy-to-stg') {
             steps {
                 deploy("STG")
             }
         }
-        stage('test-stg') {
+        stage('test-on-stg') {
             steps {
                 runApiTests("STG")
             }
         }
-        stage('deploy-prd') {
+        stage('deploy-to-prd') {
             steps {
                 deploy("PRD")
             }
         }
-        stage('test-prd') {
+        stage('test-on-prd') {
             steps {
                 runApiTests("PRD")
             }

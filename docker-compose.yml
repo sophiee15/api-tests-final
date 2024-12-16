@@ -1,19 +1,19 @@
 services:
-  python-greetings-dev:
+  python-greetings-app-dev:
     build: .
     image: sophie14/api-tests:latest
     container_name: api-tests-final-dev
     ports:
       - 7001:3000
 
-  python-greetings-stg:
+  python-greetings-app-stg:
     build: . 
     image: sophie14/api-tests:latest
     container_name: api-tests-final-stg
     ports:
       - 7002:3000
 
-  python-greetings-prd:
+  python-greetings-app-prd:
     build:
       context: .
       dockerfile: Dockerfile
