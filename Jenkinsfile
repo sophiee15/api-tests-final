@@ -54,13 +54,13 @@ def deploy(String environment) {
     echo "Deployment triggered on ${environment} env..."
     String lowerCaseEnv = environment.toLowerCase()
 
-    sh "docker compose up -d python-greetings-app:latest-${lowerCaseEnv}"
-    sh "docker compose rm python-greetings-app:latest-${lowerCaseEnv}"
-    sh "docker compose up -d python-greetings-app:latest-${lowerCaseEnv}"
+    sh "docker compose up -d python-greetings-app-${lowerCaseEnv}"
+    sh "docker compose rm python-greetings-app-${lowerCaseEnv}"
+    sh "docker compose up -d python-greetings-app-${lowerCaseEnv}"
 }
 
 def runApiTests(String environment) {
     echo "Running API tests on ${environment} env..."
-    sh "docker pull sophie14/python-greetings-app:latest"
+    sh "docker pull sophie14/python-greetings-app"
     sh "docker run --network=host --rm sophie14/python-greetings-app:latest run greetings greetings_${environment}"
 }
