@@ -44,10 +44,10 @@ pipeline {
 
 def buildDockerImage() {
     echo "Building Docker image.."
-    sh "docker build -t sophie14/api-tests-final:latest ."
+    sh "docker build -t sophie14/api-tests-final ."
 
     echo "Pushing image to Docker Hub.."
-    sh "docker push sophie14/api-tests-final:latest"
+    sh "docker push sophie14/api-tests-final"
 }
 
 def deploy(String environment) {
@@ -61,6 +61,6 @@ def deploy(String environment) {
 
 def runApiTests(String environment) {
     echo "Running API tests on ${environment} env..."
-    sh "docker pull sophie14/api-tests-final:latest"
-    sh "docker run --network=host --rm sophie14/api-tests-final:latest run greetings greetings_${environment}"
+    sh "docker pull sophie14/api-tests-final"
+    sh "docker run --network=host --rm sophie14/api-tests-final run greetings greetings_${environment}"
 }
