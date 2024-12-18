@@ -1,6 +1,4 @@
-jobs:
-  build:
-    runs-on: ubuntu-latest
+pipeline {
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -10,3 +8,4 @@ jobs:
       
       - name: Push Docker Image to Docker Hub
         run: docker push sophie14/api-tests:latest
+}
