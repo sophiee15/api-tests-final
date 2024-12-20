@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout Repository') {
             steps {
                 script {
-                    checkout scm
+                    sh 'git clone -b main https://github.com/sophiee15/api-tests-final.git .'
                 }
             }
         }
